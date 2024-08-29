@@ -1,6 +1,7 @@
 import { AddShoppingCart } from "@mui/icons-material"
 import { Box, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
 import { CartWidget } from "../CartWidget/CartWidget"
+import PropTypes from "prop-types";
 
 export const NavListDrawer = ({navLinks}) => {
   
@@ -37,4 +38,10 @@ export const NavListDrawer = ({navLinks}) => {
     </nav>
     </Box>
   )
+}
+
+NavListDrawer.propTypes= {
+navLinks : PropTypes.arrayOf( PropTypes.shape({
+ title: PropTypes.string.isRequired
+}))
 }

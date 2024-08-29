@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { NavListDrawer } from "./NavListDrawer"
-import { AppBar, Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, makeStyles, Toolbar, Typography } from "@mui/material"
+import { AppBar, Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from "@mui/material"
 import { CartWidget } from "../CartWidget/CartWidget"
 import { Menu } from "@mui/icons-material"
 
