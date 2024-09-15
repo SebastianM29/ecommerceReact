@@ -1,22 +1,29 @@
 import { useState } from "react"
 import { NavListDrawer } from "./NavListDrawer"
-import { AppBar, Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from "@mui/material"
+import { AppBar, Box, Drawer, IconButton, Link, List, ListItem,ListItemButton,ListItemText,styled,Toolbar, Typography } from "@mui/material"
 import { CartWidget } from "../CartWidget/CartWidget"
 import { Menu } from "@mui/icons-material"
 
 
-
 const navLinks = [ 
 {
-  title : "Cnc"
+  title : "Cnc",
+  href: "madera"
 },
 {
-  title: "Grabado Laser"
+  title: "Laser",
+  href: "laser"
 },
 {
-  title: "Textil"
+  title: "Moda & Arte Textil",
+  href: "textil"
+},
+{
+  title: "Estilo & Bienestar",
+  href: "cPersonal"
 }
 ]
+
 
 
 
@@ -29,7 +36,7 @@ export const NavBar = () => {
         // position:"static",
         
         }}>
-        <Toolbar>
+        <Toolbar sx={{display:"flex",justifyContent:"space-between"}}>
           <IconButton
           color="inherit"
           size="large"
@@ -38,19 +45,38 @@ export const NavBar = () => {
           >
           <Menu/>
           </IconButton>
-
-          <Typography sx={{flexGrow:1}}>WOOD</Typography>
+          <Link href="/" sx={{fontSize:"30px"}} underline="none">
+          <Box
+          component="img"
+          src="/img/logo.gif"
+          alt="Logo"
+          sx={{ width: "60px", height: "60px" ,marginTop:"5px"}} 
+          />
+         
+          </Link>
           
           <Box sx={{display:{xs:"none",sm:"flex"}}}>
 
           {navLinks.map((element)=>
-          <List key={element.title}>
+          <Box key={element.title} sx={{  padding: 0,
+            '&:hover': {
+              color: 'black',
+              '& .MuiListItemText-primary': {
+                color: "coral",
+              },
+            },}}>
+
+
+          <List >
            <ListItem>
-            <ListItemButton sx={{padding:0}}>
-              <ListItemText primary={element.title}/>
+            <ListItemButton component={Link} to={`/category/${element.href}`} >
+              <ListItemText primary={element.title}  />
             </ListItemButton>
            </ListItem>
           </List>
+
+
+          </Box>
           )}
 
           <CartWidget/>

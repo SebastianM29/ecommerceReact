@@ -2,6 +2,8 @@ import { AddShoppingCart } from "@mui/icons-material"
 import { Box, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
 import { CartWidget } from "../CartWidget/CartWidget"
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+
 
 export const NavListDrawer = ({navLinks}) => {
   
@@ -17,7 +19,7 @@ export const NavListDrawer = ({navLinks}) => {
       { navLinks.map((item) =>
         <List key={item.title}>
          <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton component={Link}to={`/category/${item.href}`}>
               <ListItemIcon>
                 <AddShoppingCart/>
               </ListItemIcon>
