@@ -1,8 +1,40 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Componente App:
+-
+Inicio con todos los productos:
+
+![alt text](/src/imgReadme/image.png)
+
+Secciones funcionales, decidi utilizar CreateBrowserRouter para realizarlas
+
+![alt text](/src/imgReadme/image2.png)
+
+Cnc:
+-
+![alt text](/src/imgReadme/image3.png)
+
+Laser:
+-
+![alt text](/src/imgReadme/image4.png)
+
+Moda & Arte Textil
+-
+![alt text](/src/imgReadme/image5.png)
+
+Estilo y Bienestar
+-
+![alt text](/src/imgReadme/image6.png)
+
+
+Boton de detalles funcional:
+-
+![alt text](/src/imgReadme/image7.png)
+![alt text](/src/imgReadme/image8.png)
+![alt text](/src/imgReadme/image9.png)
+
+Barra de navegacion lateral para hacerlo mas responsive
+-
+![alt text](/src/imgReadme/image10.png)
