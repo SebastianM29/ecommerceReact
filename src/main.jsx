@@ -9,12 +9,15 @@ import '@fontsource/roboto/700.css';
 import { RouterProvider } from 'react-router-dom';
 import { getrouter } from './router/router.jsx';
 import './index.css';
+import { CarritoProvider } from './context/CarritoContext.jsx';
 
 const router = getrouter
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <CarritoProvider>
     <RouterProvider router={router}/>
+    </CarritoProvider>
   </StrictMode>,
 )
 

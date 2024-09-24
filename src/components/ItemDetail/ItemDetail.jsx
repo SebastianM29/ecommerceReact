@@ -1,8 +1,28 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material"
 import { useCounter } from "../../hooks/useCounter"
+import { Link } from "react-router-dom"
+import { Counter } from "../Counter/Counter"
+import { useState } from "react"
+import { useContext } from "react";
+import { CarritoContext } from "../../context/CarritoContext"
 
-export const ItemDetail = ({id,nombre,precio,imagePath}) => {
+export const ItemDetail = ({id,nombre,precio,imagePath,stock}) => {
+  
+  const [cantidad,setCantidad] = useState(0)
   const{counter,suma,rest}=useCounter(0)
+  const {agregarAlCarrito} = useContext(CarritoContext)
+
+  const agregar = (val) => {
+    console.log('hago click en agregar',val);
+    setCantidad(val)
+    
+    const item={id,nombre,precio}
+    const values = agregarAlCarrito(item,val)
+    console.log(values);
+    
+
+
+  }
  
   return (
 
@@ -16,7 +36,7 @@ export const ItemDetail = ({id,nombre,precio,imagePath}) => {
         height={400}
         alt="una imagen"
     />
-    <CardContent>
+    <CardContent> 
 
 
       <Typography variant="h5">{nombre}</Typography>
@@ -24,14 +44,11 @@ export const ItemDetail = ({id,nombre,precio,imagePath}) => {
       <Typography variant="body2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nemo expedita eveniet minima, optio ex ut possimus error hic non pariatur tenetur? Error placeat sapiente, nesciunt temporibus illo quis! Ducimus.</Typography>
         
     </CardContent>
-    <CardActions >
+   
+    {
+      cantidad > 0 ? (<Link to={"/cart"}>terminar compra</Link>):(<Counter stock = {stock} counter = {counter} suma ={suma} rest = {rest} agregar={agregar}/>)
+    }
 
-     <Button onClick={()=>{rest()}} variant="contained" sx={{borderRadius:"0",backgroundColor:"orange"}}>-</Button>
-     <Typography>{counter}</Typography>
-     <Button onClick={()=>{suma()}} variant="contained" sx={{borderRadius:"0",backgroundColor:"orange"}}>+</Button>
-    <Button variant="contained" sx={{borderRadius:"0",backgroundColor:"orange"}}>Agregar al carrito</Button>
-
-    </CardActions>
 
 
 

@@ -5,6 +5,7 @@ import { NavBar } from "./components/NavBar/NavBar"
 
 
 
+
 export const App = () => {
   
   return (
@@ -13,7 +14,6 @@ export const App = () => {
     <div style={{ height: 70 }} /> 
    
      <Outlet />
-    
     </>
   )
 }

@@ -5,8 +5,12 @@ export const useCounter = (initialValue = 0) => {
   const [counter, setCounter] = useState(initialValue)
  
    
-  const suma =(value = 1) => {
-    setCounter(counter + value)
+  const suma =(stock) => {
+    
+    if (counter < stock) {
+      
+      setCounter(counter + 1)
+    }
   }
 
 
