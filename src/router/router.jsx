@@ -4,6 +4,7 @@ import { ItemDetailContainer } from "../components/ItemDetailContainer/ItemDetai
 
 import { ErrorPage } from "../components/ErrorPage/ErrorPage.jsx";
 import { App } from "../App.jsx";
+import { Cart } from "../components/cart/Cart.jsx";
 
 export const getrouter = createBrowserRouter([
    
@@ -24,7 +25,12 @@ export const getrouter = createBrowserRouter([
                 {
                     path: "item/:id",  
                     element: <ItemDetailContainer/>
+                },
+                {
+                    path: "cart",  
+                    element: <Cart/>
                 }
+
 
             ]
 

@@ -19,10 +19,10 @@ export const CarritoProvider = ({children}) => {
     const agregarAlCarrito = (item ,cantidad) => {
         const prodExist =  carrito.find((element) => element.item.id === item.id)
         if(!prodExist){
-            setCarrito(val => [...val,{item,cantidad}])
-            setTotal(val => val + (item.precio*cantidad))
-            setCantidadTotal(val => val + cantidad)
-            console.log("producto existe");
+            setCarrito((val) => [...val,{item,cantidad}])
+            setTotal((val) => val + (item.precio*cantidad))
+            setCantidadTotal((val) => val + cantidad)
+            console.log("producto no existe");
             
         }else{
             
