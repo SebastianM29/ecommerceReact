@@ -1,10 +1,12 @@
 
 import { useEffect, useState } from "react";
-import { getCategoryProd, getProducts } from "../../asyncMock";
+// import { getCategoryProd, getProducts } from "../../asyncMock";
 import { ItemList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { useCategoryMessage } from "../../hooks/useCategoryMessage";
 import { Typography } from "@mui/material";
+import { db } from "../../services/configDB";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 
 export const ItemListContainer = () => {
@@ -13,21 +15,23 @@ const {idCat} = useParams()
 
 const valueMessage = useCategoryMessage(idCat)
 
-
+ useEffect(() => {
+  const result = idCat ? query(collection(db,"productos"),where("cat" ,"==",idCat)):collection(db,"productos");
+  const res = async () => {
+    const resultProducts = await getDocs(result)
+    const resultProductsWhitId = resultProducts.docs.map(element => {
+      const data = element.data() 
+      return {id:element.id , ...data}
+    })
+    setProducts(resultProductsWhitId)
+  }
+  res()
+ }, [idCat])
+ 
 
 
   
 
-  useEffect( () => {
-    
-   
-    const fetchProducts = async () => {
-      const result = idCat ? await getCategoryProd(idCat): await getProducts();
-      setProducts(result);
-  };
-  fetchProducts();
-  
-  }, [idCat])
 
   
   

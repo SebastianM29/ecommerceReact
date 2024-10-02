@@ -17,7 +17,7 @@ export const NavListDrawer = ({navLinks}) => {
     <nav>
 
       { navLinks.map((item) =>
-        <List key={item.title}>
+        <List key={item.id}>
          <ListItem disablePadding>
             <ListItemButton component={Link}to={`/category/${item.href}`}>
               <ListItemIcon>

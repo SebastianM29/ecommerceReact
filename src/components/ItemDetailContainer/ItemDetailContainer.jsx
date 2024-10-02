@@ -1,23 +1,40 @@
 import { useEffect, useState } from "react"
-import { getProductsById } from "../../asyncMock"
+// import { getProductsById } from "../../asyncMock"
 import { ItemDetail } from "../ItemDetail/ItemDetail"
 import { Grid } from "@mui/material"
 import { useParams } from "react-router-dom"
+import { doc, getDoc} from "firebase/firestore"
+import { db } from "../../services/configDB"
 
 export const ItemDetailContainer = () => {
    const [prod,setProd] = useState(null)
    const{id} = useParams()
+   console.log("este es el",id);
+   
 
    
+   useEffect(() => {
+    const resp = doc(db,"productos",id)
+
    
-  useEffect(() => {
-   const fetchDetailById = async () => {
-       const data = await getProductsById(JSON.parse(id))
-       setProd(data)
-   }
-   fetchDetailById()
-  }, [id])
-  
+    
+    const result = async() => {
+      const resultProducts = await getDoc(resp)
+
+
+      const value = resultProducts.data()
+
+
+      const resultProductsWhitId = {
+        id:resultProducts.id ,...value
+      }
+      
+      setProd(resultProductsWhitId)
+    }
+    result()
+   }, [id])
+   
+
 
   return (
     <>
