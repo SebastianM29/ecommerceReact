@@ -46,7 +46,7 @@ export const ItemDetail = ({id,nombre,precio,imagePath,stock}) => {
     </CardContent>
    
     {
-      cantidad > 0 ? (<Button component={Link} to={"/cart"} >  terminar compra </Button> ):(<Counter stock = {stock} counter = {counter} suma ={suma} rest = {rest} agregar={agregar}/>)
+      cantidad > 0 ? ( <>  <Button component={Link} to={"/cart"} >  terminar compra </Button> <Button sx={{color:"orange"}} component={Link} to={"/"} >  seguir comprando </Button> </>):(<Counter stock = {stock} counter = {counter} suma ={suma} rest = {rest} agregar={agregar}/>)
     }
 
 

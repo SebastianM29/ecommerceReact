@@ -1,25 +1,29 @@
 import { useState } from "react"
 import { Link } from "react-router-dom";
 import { NavListDrawer } from "./NavListDrawer"
-import { AppBar, Box, Drawer, IconButton, List, ListItem,ListItemButton,ListItemText,Toolbar, Typography } from "@mui/material"
+import { AppBar, Box, Drawer, IconButton, List, ListItem,ListItemButton,ListItemText,Toolbar } from "@mui/material"
 import { CartWidget } from "../CartWidget/CartWidget"
 import { Menu } from "@mui/icons-material"
 
 
 const navLinks = [ 
 {
+  id:1,
   title : "Cnc",
   href: "madera"
 },
 {
+  id:2,
   title: "Laser",
   href: "laser"
 },
 {
+  id:3,
   title: "Moda & Arte Textil",
   href: "textil"
 },
-{
+{ 
+  id:4,
   title: "Estilo & Bienestar",
   href: "cPersonal"
 }

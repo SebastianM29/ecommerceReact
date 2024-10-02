@@ -66,19 +66,16 @@ export const Checkout = () => {
         marginTop:"100px",
         marginLeft:"20px",
         flexFlow:"column",
-       
+        width:"70%",
         minHeight:300,
-        backgroundColor:"beige",
-        padding:"30px"
-        
-
+        backgroundColor:"#F2B749",
+        padding:"20px",
+        borderRadius:"10px",
+        boxShadow:"0px 0px 10px 3px rgba(0, 0, 0, 0.5)"
     }}
      onSubmit={handleSubmit}
     >
       
-   
-
-
         <TextField 
      sx={{marginTop:"10px"}}
      type="text"
@@ -128,18 +125,7 @@ export const Checkout = () => {
      >
         
      </TextField>
-
-
-
-
-   
-
-
-
-
-    
-
-      <Button type="submit" variant="outlined">comprar</Button>
+      <Button sx={{marginTop:"10px"}} type="submit" color="warning" variant="contained">comprar</Button>
       {
         ordenId && (
           <Typography> Compra realizada Nº de Orden: {ordenId}</Typography>
@@ -152,8 +138,8 @@ export const Checkout = () => {
 
       </Grid2>
       <Grid2 size={{sm:8}} sx={{padding:"20px"}}>
-       <Box sx={{marginTop:"100px",backgroundColor:"orange",padding:"10px"}}>
-      <Box sx={{ display: "flex", marginTop: "10px",justifyContent:"space-between", fontWeight: "bold" }}>
+       <Box sx={{marginTop:"100px",backgroundColor:"#F2B749",boxShadow:5,borderRadius:"10px",padding:"5px"}}>
+      <Box sx={{ display: "flex", marginTop: "10px",color:"white",justifyContent:"space-between", fontWeight: "bold" }}>
       <Typography sx={{flex:1}}>Producto</Typography>
       <Typography sx={{flex:1}}>Cantidad</Typography>
       <Typography sx={{flex:1}}>Precio Unitario</Typography>
@@ -161,12 +147,11 @@ export const Checkout = () => {
        </Box>
       {
       carrito.map(element => (
-        <Box key={element.item.id} sx={{marginTop:"50px" ,display:"flex",justifyContent:"space-between"}}>
-        <Typography sx={{flex:1}}>{element.item.nombre}</Typography>
-        <Typography sx={{flex:1}}>{element.cantidad}</Typography>
-        <Typography sx={{flex:1}}>{element.item.precio}</Typography>
-        <Typography sx={{flex:1}}>Precio Total: {element.item.precio * element.cantidad}</Typography>
-        <Typography ></Typography>
+        <Box key={element.item.id} sx={{marginTop:"20px" ,display:"flex",justifyContent:"space-between"}}>
+        <Typography variant="body1" sx={{flex:1}}>{element.item.nombre}</Typography>
+        <Typography variant="body1" sx={{flex:1}}>{element.cantidad}</Typography>
+        <Typography variant="body1" sx={{flex:1}}>{element.item.precio}</Typography>
+        <Typography variant="body1" sx={{flex:1}}>Precio Total: {element.item.precio * element.cantidad}</Typography>
         </Box>
 
 
