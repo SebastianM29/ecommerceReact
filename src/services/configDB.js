@@ -21,17 +21,17 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app)
 
 const productos = [
-    { nombre : "Tabla de Asado",stock:3, precio:20000 , imagePath: ".././public/img/img2.jpg", cat:"madera"},
-    { nombre : "Maceta" ,stock:3,precio:1000 ,imagePath: ".././public/img/img3.jpg", cat:"madera"},
-    { nombre : "Cuadro" ,stock:3, precio:15000 , imagePath: ".././public/img/img4.jpg", cat:"laser"},
-    { nombre : "Cuadro",stock:3, precio:20000 , imagePath: ".././public/img/img6.jpg", cat:"laser"},
-    { nombre : "Pizzera",stock:3, precio:1500 , imagePath: ".././public/img/img7.jpg", cat:"madera"},
-    { nombre : "Cream ordeñe",stock:3, precio:1500 , imagePath: ".././public/img/bio1.webp", cat:"cPersonal"},
-    { nombre : "Combo Origenes",stock:3, precio:1500 , imagePath: ".././public/img/bio2.png", cat:"cPersonal"},
-    { nombre : "Queen Beauty Set",stock:3, precio:1500 , imagePath: ".././public/img/bio3.jpg", cat:"cPersonal"},
-    { nombre : "Crema corporal de Arnica",stock:3, precio:1500 , imagePath: ".././public/img/bio4.jpg", cat:"cPersonal"},
-    { nombre : "lana", precio:1500 ,stock:3, imagePath: ".././public/img/textil1.jpeg", cat:"textil"},
-    { nombre : "lana", precio:1500 ,stock:3, imagePath: ".././public/img/images.jfif", cat:"textil"}
+    { nombre : "Tabla de Asado",stock:3, precio:20000 , imagePath: "/img/img2.jpg", cat:"madera"},
+    { nombre : "Maceta" ,stock:3,precio:1000 ,imagePath: "/img/img3.jpg", cat:"madera"},
+    { nombre : "Cuadro" ,stock:3, precio:15000 , imagePath: "/img/img4.jpg", cat:"laser"},
+    { nombre : "Cuadro",stock:3, precio:20000 , imagePath: "/img/img6.jpg", cat:"laser"},
+    { nombre : "Pizzera",stock:3, precio:1500 , imagePath: "/img/img7.jpg", cat:"madera"},
+    { nombre : "Cream ordeñe",stock:3, precio:1500 , imagePath: "/img/bio1.webp", cat:"cPersonal"},
+    { nombre : "Combo Origenes",stock:3, precio:1500 , imagePath: "/img/bio2.png", cat:"cPersonal"},
+    { nombre : "Queen Beauty Set",stock:3, precio:1500 , imagePath: "/img/bio3.jpg", cat:"cPersonal"},
+    { nombre : "Crema corporal de Arnica",stock:3, precio:1500 , imagePath: "/img/bio4.jpg", cat:"cPersonal"},
+    { nombre : "lana", precio:1500 ,stock:3, imagePath: "/img/textil1.jpeg", cat:"textil"},
+    { nombre : "lana", precio:1500 ,stock:3, imagePath: "/img/images.jfif", cat:"textil"}
 ]
 
 // const uploadProducts = async () => {

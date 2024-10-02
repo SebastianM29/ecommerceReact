@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { CarritoContext } from "../../context/CarritoContext"
-import { Box, Button, Grid, Typography } from "@mui/material"
+import { Box, Button, Grid, Grid2, Typography } from "@mui/material"
 import { ItemCart } from "../ItemCart/ItemCart"
 import { Link } from "react-router-dom"
 
@@ -51,11 +51,11 @@ export const Cart = () => {
         <Grid >
             {carrito.map(element => 
             
-            <Grid key = {element.id} >
+            <Grid2 key = {element.item.id} >
             
             <ItemCart  {...element}/>
         
-            </Grid>
+            </Grid2>
         
         )}
         </Grid>

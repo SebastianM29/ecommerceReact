@@ -55,7 +55,7 @@ export const Item = ({id,nombre,imagePath}) => {
 }
 
 Item.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   nombre: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired
 

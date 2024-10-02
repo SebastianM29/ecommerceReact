@@ -1,22 +1,55 @@
 import { Box, Button, Grid2, TextField, Typography } from "@mui/material"
 import { useForm } from "../../hooks/useForm"
 import { CarritoContext } from "../../context/CarritoContext"
-import { useContext } from "react"
+import { useContext, useState } from "react"
+import { db } from "../../services/configDB"
+import { addDoc, collection } from "firebase/firestore"
 
 export const Checkout = () => {
     //name,apellido,telefono,email,emailconfirmacion
     // name:"",
     // lastName:"",
     // telephone:""
-    const {carrito}=useContext(CarritoContext)
+    const [ordenId , setOrdenId] = useState("")
+    const {carrito,total,vaciarCarrito}=useContext(CarritoContext)
+
     console.log(carrito);
     
       const{name,lastName,telephone,email,onInputChange}=useForm({name:"",lastName:"",telephone:"",email:""})
 
-      const handleSubmit = (e) => {
+      const handleSubmit = async(e) => {
+     
        e.preventDefault();
-       console.log(name);
-       console.log("submit");
+       try {
+        console.log(name);
+        console.log("submit");
+ 
+        const order = {
+         items: carrito.map((element)=>({
+         id: element.item.id,
+         nombre: element.item.nombre,
+         precio:element.item.precio,
+         cantidad: element.cantidad
+         })),
+         total,
+         fecha: new Date(),
+         name,
+         lastName,
+         telephone,
+         email
+        
+        }
+       console.log(order);
+       
+       const ord = await addDoc(collection(db,"ordenes"),order)
+       setOrdenId(ord.id)
+       vaciarCarrito()
+        
+       } catch (error) {
+        console.log("error",error);
+        
+       }
+   
        
       }
 
@@ -107,7 +140,11 @@ export const Checkout = () => {
     
 
       <Button type="submit" variant="outlined">comprar</Button>
-
+      {
+        ordenId && (
+          <Typography> Compra realizada Nº de Orden: {ordenId}</Typography>
+        )
+      }
 
     
      </Box>
@@ -124,7 +161,7 @@ export const Checkout = () => {
        </Box>
       {
       carrito.map(element => (
-        <Box key={element.id} sx={{marginTop:"50px" ,display:"flex",justifyContent:"space-between"}}>
+        <Box key={element.item.id} sx={{marginTop:"50px" ,display:"flex",justifyContent:"space-between"}}>
         <Typography sx={{flex:1}}>{element.item.nombre}</Typography>
         <Typography sx={{flex:1}}>{element.cantidad}</Typography>
         <Typography sx={{flex:1}}>{element.item.precio}</Typography>
