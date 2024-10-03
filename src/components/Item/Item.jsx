@@ -34,8 +34,12 @@ export const Item = ({id,nombre,imagePath,stock}) => {
   
     <CardContent>
    
-      <Typography variant="h5">{stock}</Typography>
-      <Typography variant="h5">{nombre}</Typography>
+      <Typography variant="h5" sx={{
+        fontFamily: "Merienda"
+
+    
+      }}>{nombre}</Typography>
+      <Typography variant="body2">Stock:{stock}</Typography>
  
   
     </CardContent>
