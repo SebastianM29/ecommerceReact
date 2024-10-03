@@ -3,7 +3,7 @@ import  PropTypes  from "prop-types";
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material"
 import { Link } from "react-router-dom";
 
-export const Item = ({id,nombre,imagePath}) => {
+export const Item = ({id,nombre,imagePath,stock}) => {
   return (
 
     <>
@@ -34,6 +34,7 @@ export const Item = ({id,nombre,imagePath}) => {
   
     <CardContent>
    
+      <Typography variant="h5">{stock}</Typography>
       <Typography variant="h5">{nombre}</Typography>
  
   

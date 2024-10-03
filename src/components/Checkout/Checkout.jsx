@@ -3,19 +3,16 @@ import { useForm } from "../../hooks/useForm"
 import { CarritoContext } from "../../context/CarritoContext"
 import { useContext, useState } from "react"
 import { db } from "../../services/configDB"
-import { addDoc, collection } from "firebase/firestore"
+import { addDoc, collection, doc, getDoc, updateDoc } from "firebase/firestore"
 
 export const Checkout = () => {
-    //name,apellido,telefono,email,emailconfirmacion
-    // name:"",
-    // lastName:"",
-    // telephone:""
+  
     const [ordenId , setOrdenId] = useState("")
     const {carrito,total,vaciarCarrito}=useContext(CarritoContext)
 
     console.log(carrito);
     
-      const{name,lastName,telephone,email,onInputChange}=useForm({name:"",lastName:"",telephone:"",email:""})
+      const{name,lastName,telephone,email,onInputChange,resetForm}=useForm({name:"",lastName:"",telephone:"",email:""})
 
       const handleSubmit = async(e) => {
      
@@ -42,15 +39,30 @@ export const Checkout = () => {
        console.log(order);
        
        const ord = await addDoc(collection(db,"ordenes"),order)
+       order.items.map(async(element) => {
+         const productRef =  doc(db,"productos",element.id)
+         const prodDoc = await getDoc(productRef)
+         const stock = prodDoc.data().stock
+
+         await updateDoc(productRef,{
+          stock: stock - element.cantidad
+         })
+         
+
+
+       })
+
+
        setOrdenId(ord.id)
        vaciarCarrito()
+       resetForm()
         
        } catch (error) {
         console.log("error",error);
         
        }
    
-       
+    
       }
 
   return (
@@ -60,6 +72,7 @@ export const Checkout = () => {
            
        <Box 
     component="form"
+   
     sx={{
         display:"flex",
         justifyContent:"center",
