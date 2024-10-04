@@ -39,6 +39,8 @@ export const Checkout = () => {
        console.log(order);
        
        const ord = await addDoc(collection(db,"ordenes"),order)
+
+       
        order.items.map(async(element) => {
          const productRef =  doc(db,"productos",element.id)
          const prodDoc = await getDoc(productRef)

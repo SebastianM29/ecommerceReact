@@ -1,8 +1,9 @@
 import { Button, CardActions, Typography } from "@mui/material"
 
 
+
 export const Counter = ({stock,suma,rest,counter,agregar}) => {
-    
+  
   console.log('en el counter',stock);
   
   return (

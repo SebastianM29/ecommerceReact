@@ -15,8 +15,8 @@ export const ItemDetail = ({id,nombre,precio,imagePath,stock}) => {
   const agregar = (val) => {
     console.log('hago click en agregar',val);
     setCantidad(val)
-    
-    const item={id,nombre,precio}
+    //Agregue stock
+    const item={id,nombre,precio,stock}
     const values = agregarAlCarrito(item,val)
     console.log(values);
     
