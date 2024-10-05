@@ -70,7 +70,7 @@ export const Checkout = () => {
   return (
     <>
     <Grid2 container spacing={2}>
-      <Grid2 size={{sm:4}}>
+      <Grid2 size={{xs:12,sm:7,md:3}}>
            
        <Box 
     component="form"
@@ -78,7 +78,7 @@ export const Checkout = () => {
     sx={{
         display:"flex",
         justifyContent:"center",
-        marginTop:"100px",
+        marginTop:"125px",
         marginLeft:"20px",
         flexFlow:"column",
         width:"70%",
@@ -152,8 +152,8 @@ export const Checkout = () => {
 
 
       </Grid2>
-      <Grid2 size={{sm:8}} sx={{padding:"20px"}}>
-       <Box sx={{marginTop:"100px",backgroundColor:"#F2B749",boxShadow:5,borderRadius:"10px",padding:"5px"}}>
+      <Grid2 size={{xs:12,sm:12, md:9}} sx={{padding:"20px"}}>
+       <Box sx={{minHeight:"400px", marginTop:"100px",backgroundColor:"#F2B749",boxShadow:5,borderRadius:"10px",padding:"5px"}}>
       <Box sx={{ display: "flex", marginTop: "10px",color:"white",justifyContent:"space-between", fontWeight: "bold" }}>
       <Typography sx={{flex:1}}>Producto</Typography>
       <Typography sx={{flex:1}}>Cantidad</Typography>

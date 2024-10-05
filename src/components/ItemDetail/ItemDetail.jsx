@@ -13,6 +13,7 @@ export const ItemDetail = ({id,nombre,precio,imagePath,stock}) => {
   const {agregarAlCarrito} = useContext(CarritoContext)
 
   const agregar = (val) => {
+    
     if (val !== 0) {
       
       console.log('hago click en agregar',val);

@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 
 
 export const NavListDrawer = ({navLinks}) => {
-  
+
   return (
     <Box sx={{
-        
+
         width:250,
         height:"100% ",
         backgroundColor:"orangered"
@@ -20,12 +20,12 @@ export const NavListDrawer = ({navLinks}) => {
         <List key={item.id}>
          <ListItem disablePadding>
             <ListItemButton component={Link}to={`/category/${item.href}`}>
-              <ListItemIcon>
+              {/* <ListItemIcon>
                 <AddShoppingCart/>
-              </ListItemIcon>
+              </ListItemIcon> */}
               <ListItemText primary={item.title}/>
           </ListItemButton>
-        </ListItem>            
+        </ListItem>
         </List>
       )}
       <Divider/>
@@ -34,8 +34,8 @@ export const NavListDrawer = ({navLinks}) => {
 
 
 
-    
-    
+
+
 
     </nav>
     </Box>
