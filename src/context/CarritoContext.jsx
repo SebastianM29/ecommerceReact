@@ -28,10 +28,14 @@ export const CarritoProvider = ({children}) => {
             
             const find = carrito.map((element)=> {
                 if (element.item.id === item.id) {
-                   if (cantidadTotal > element.item.stock) {
+
+
+                   if ((cantidadTotal + element.item.stock) > element.item.stock) {
                     console.log("en este esta el problema", cantidadTotal);
                 return {...element, cantidad: element.item.stock}
                 }
+
+
                 console.log("acumulando cantidades",element.item.stock);
                 
                 return {...element, cantidad: element.cantidad +  cantidad}
