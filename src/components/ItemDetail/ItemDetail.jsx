@@ -11,7 +11,8 @@ export const ItemDetail = ({id,nombre,precio,imagePath,stock}) => {
   const [cantidad,setCantidad] = useState(0)
   const{counter,suma,rest}=useCounter(0)
   const {agregarAlCarrito} = useContext(CarritoContext)
-
+ 
+  
   const agregar = (val) => {
     
     if (val !== 0) {

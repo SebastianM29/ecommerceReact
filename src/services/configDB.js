@@ -2,17 +2,18 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import {collection,doc,writeBatch}  from "firebase/firestore";
+import { configEnv } from "../config/config";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD8Vp76P_zfoYtMaHOHmqDROlLRU4ZBF8E",
-  authDomain: "ecommerce-wood.firebaseapp.com",
-  projectId: "ecommerce-wood",
-  storageBucket: "ecommerce-wood.appspot.com",
-  messagingSenderId: "535811087815",
-  appId: "1:535811087815:web:187fd5f3d002745a3a0de2"
+  apiKey: configEnv.firebaseApiKey,
+  authDomain: configEnv.authDomain,
+  projectId: configEnv.projectID,
+  storageBucket: configEnv.storageBucket,
+  messagingSenderId: configEnv.messagingSenderId,
+  appId: configEnv.appId
 };
 
 // Initialize Firebase

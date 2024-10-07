@@ -3,7 +3,18 @@
 
 
 Componente App:
--
+
+Tecnologias utilizadas:
+
+- Vite
+- React
+- React-Router-Dom
+- Material UI
+- Firebase 
+
+
+
+
 Inicio con todos los productos:
 
 ![alt text](/src/imgReadme/image.png)
