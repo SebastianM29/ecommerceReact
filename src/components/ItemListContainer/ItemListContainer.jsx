@@ -38,7 +38,7 @@ const valueMessage = useCategoryMessage(idCat)
   return (
     <>
      
-     <Typography variant="body2" sx={{display:"flex" , justifyContent:"center", margin:"20px" ,marginBottom:"60px"}}>{valueMessage}</Typography>
+     <Typography variant="body1" sx={{display:"flex" , justifyContent:"center",marginTop:"100px",marginBottom:"60px"}}>{valueMessage}</Typography>
     
     <ItemList products = {products} />
     

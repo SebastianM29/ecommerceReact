@@ -18,6 +18,7 @@ export const CarritoProvider = ({children}) => {
     
     const agregarAlCarrito = (item ,cantidad) => {
         const prodExist =  carrito.find((element) => element.item.id === item.id)
+
         if(!prodExist ){
             setCarrito((val) => [...val,{item,cantidad}])
             setTotal((val) => val + (item.precio*cantidad))
@@ -28,9 +29,10 @@ export const CarritoProvider = ({children}) => {
             
             const find = carrito.map((element)=> {
                 if (element.item.id === item.id) {
+                  
 
 
-                   if ((cantidadTotal + element.item.stock) > element.item.stock) {
+                   if ((cantidadTotal + cantidad) > element.item.stock) {
                     console.log("en este esta el problema", cantidadTotal);
                 return {...element, cantidad: element.item.stock}
                 }

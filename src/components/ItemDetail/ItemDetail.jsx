@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material"
+import { Button, Card, CardActions, CardContent, CardMedia, Grid, Snackbar, SnackbarContent, Typography } from "@mui/material"
 import { useCounter } from "../../hooks/useCounter"
 import { Link } from "react-router-dom"
 import { Counter } from "../Counter/Counter"
@@ -9,6 +9,7 @@ import { CarritoContext } from "../../context/CarritoContext"
 export const ItemDetail = ({id,nombre,precio,imagePath,stock}) => {
   
   const [cantidad,setCantidad] = useState(0)
+  const[open,setOpen] = useState(false)
   const{counter,suma,rest}=useCounter(0)
   const {agregarAlCarrito} = useContext(CarritoContext)
  
@@ -17,16 +18,16 @@ export const ItemDetail = ({id,nombre,precio,imagePath,stock}) => {
     
     if (val !== 0) {
       
-      console.log('hago click en agregar',val);
       setCantidad(val)
       //Agregue stock
       const item={id,nombre,precio,stock}
-      const values = agregarAlCarrito(item,val)
-      console.log(values);
+      agregarAlCarrito(item,val)
+      setOpen(true)
     }
-    
+  }
 
-
+  const handleClose = () => {
+     setOpen(false)
   }
  
   return (
@@ -51,7 +52,24 @@ export const ItemDetail = ({id,nombre,precio,imagePath,stock}) => {
     </CardContent>
    
     {
-      cantidad > 0 ? ( <>  <Button component={Link} to={"/cart"} >  terminar compra </Button> <Button sx={{color:"orange"}} component={Link} to={"/"} >  seguir comprando </Button> </>):(<Counter stock = {stock} counter = {counter} suma ={suma} rest = {rest} agregar={agregar}/>)
+      cantidad > 0 ? ( 
+      <>
+      <Snackbar
+      open={open}
+      autoHideDuration={1500}
+      onClose={handleClose}
+      >
+        <SnackbarContent
+        sx={{ backgroundColor:"orange"}}
+        message="Producto Agregado"
+        />
+        
+      </Snackbar>  
+      <Button component={Link} to={"/cart"} >  terminar compra </Button>
+      <Button sx={{color:"orange"}} component={Link} to={"/"} >  seguir comprando </Button> </>)
+      :
+      
+      (<Counter stock = {stock} counter = {counter} suma ={suma} rest = {rest} agregar={agregar}/>)
     }
 
 

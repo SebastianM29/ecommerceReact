@@ -3,10 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import {collection,doc,writeBatch}  from "firebase/firestore";
 import { configEnv } from "../config/config";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: configEnv.firebaseApiKey,
   authDomain: configEnv.authDomain,
@@ -16,7 +13,7 @@ const firebaseConfig = {
   appId: configEnv.appId
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app)
