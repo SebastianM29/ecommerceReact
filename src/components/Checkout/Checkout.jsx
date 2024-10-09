@@ -50,7 +50,7 @@ export const Checkout = () => {
          email
         
         }
-       console.log(order);
+
        
        const ord = await addDoc(collection(db,"ordenes"),order)
 

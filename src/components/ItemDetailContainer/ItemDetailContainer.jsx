@@ -9,8 +9,7 @@ import { db } from "../../services/configDB"
 export const ItemDetailContainer = () => {
    const [prod,setProd] = useState(null)
    const{id} = useParams()
-   console.log("este es el",id);
-   
+
 
    
    useEffect(() => {

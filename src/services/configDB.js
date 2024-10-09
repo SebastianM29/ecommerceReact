@@ -43,7 +43,6 @@ const productos = [
 
 //     try {
 //         await batch.commit()
-//         console.log("guardado exitosamente");
         
 //     } catch (error) {
 //         console.log("error al grabar",error);

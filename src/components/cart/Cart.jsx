@@ -11,9 +11,7 @@ import { Link } from "react-router-dom"
 
 export const Cart = () => {
     const{carrito,total,cantidadTotal,vaciarCarrito}=useContext(CarritoContext)
-    carrito.forEach(element => {
-        console.log(element);
-    });
+
     
   return (
     <>

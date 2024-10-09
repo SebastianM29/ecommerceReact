@@ -14,7 +14,6 @@ export const CarritoProvider = ({children}) => {
     const [carrito,setCarrito] = useState([])
     const [total , setTotal] = useState(0)
     const [cantidadTotal,setCantidadTotal] = useState(0)
-    console.log("estoy en el context",carrito);
     
     const agregarAlCarrito = (item ,cantidad) => {
         const prodExist =  carrito.find((element) => element.item.id === item.id)
@@ -23,7 +22,6 @@ export const CarritoProvider = ({children}) => {
             setCarrito((val) => [...val,{item,cantidad}])
             setTotal((val) => val + (item.precio*cantidad))
             setCantidadTotal((val) => val + cantidad)
-            console.log("producto no existe");
             
         }else{
             
@@ -33,19 +31,16 @@ export const CarritoProvider = ({children}) => {
 
 
                    if ((cantidadTotal + cantidad) > element.item.stock) {
-                    console.log("en este esta el problema", cantidadTotal);
                 return {...element, cantidad: element.item.stock}
                 }
 
 
-                console.log("acumulando cantidades",element.item.stock);
                 
                 return {...element, cantidad: element.cantidad +  cantidad}
             }else{
                 return element
             }
            })
-        console.log("debe esta el actualizado mal",find);
 
             setCarrito(find)
             setTotal(val => val + (item.precio * cantidad))
@@ -67,7 +62,6 @@ export const CarritoProvider = ({children}) => {
 
     const actualizarCarrito=(item,counter) => {
         const findCart  = carrito.find((element => element.item.id === item.id))
-        console.log("seleccionado", findCart);
         
         if (findCart) {
         
@@ -86,7 +80,6 @@ export const CarritoProvider = ({children}) => {
 
             })
 
-            console.log("carrito",update);
             
               // Calcular el nuevo total y cantidad total
         const nuevoTotal = update.reduce((acc, curr) => acc + (curr.item.precio * curr.cantidad), 0);
