@@ -49,3 +49,11 @@ Boton de detalles funcional:
 Barra de navegacion lateral para hacerlo mas responsive
 -
 ![alt text](/src/imgReadme/image10.png)
+
+SnackBar agregado 
+-
+![alt text](/src/imgReadme/image11.png)
+
+Dialog implementado
+-
+![alt text](/src/imgReadme/image12.png)
