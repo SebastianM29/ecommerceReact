@@ -38,7 +38,7 @@ export const NavBar = () => {
     <header>
       <AppBar sx={{height:70,
         backgroundColor:"orangered",
-        // position:"static",
+       
         
         }}>
         <Toolbar sx={{display:"flex",justifyContent:"space-between"}}>

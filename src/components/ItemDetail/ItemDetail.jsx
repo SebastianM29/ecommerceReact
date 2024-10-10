@@ -19,7 +19,7 @@ export const ItemDetail = ({id,nombre,precio,imagePath,stock}) => {
     if (val !== 0) {
       
       setCantidad(val)
-      //Agregue stock
+      
       const item={id,nombre,precio,stock}
       agregarAlCarrito(item,val)
       setOpen(true)

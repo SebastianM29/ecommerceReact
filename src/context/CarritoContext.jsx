@@ -69,8 +69,7 @@ export const CarritoProvider = ({children}) => {
             
             const update = carrito.map(element => {
                 if (element.item.id === item.id) {
-                    // setTotal(item.precio * counter)
-                    // setCantidadTotal( counter )
+
                     return {...element, cantidad:counter}
 
 
@@ -81,7 +80,6 @@ export const CarritoProvider = ({children}) => {
             })
 
             
-              // Calcular el nuevo total y cantidad total
         const nuevoTotal = update.reduce((acc, curr) => acc + (curr.item.precio * curr.cantidad), 0);
         const nuevaCantidadTotal = update.reduce((acc, curr) => acc + curr.cantidad, 0);
          

@@ -1,5 +1,4 @@
 
-//"AIzaSyD8Vp76P_zfoYtMaHOHmqDROlLRU4ZBF8E"
 export const configEnv = {
     firebaseApiKey: import.meta.env.VITE_FIREBASE_API_KEY,
     authDomain: import.meta.env.VITE_AUTHDOMAIN,

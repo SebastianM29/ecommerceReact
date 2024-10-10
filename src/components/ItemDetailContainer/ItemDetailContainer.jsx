@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-// import { getProductsById } from "../../asyncMock"
 import { ItemDetail } from "../ItemDetail/ItemDetail"
 import { Grid } from "@mui/material"
 import { useParams } from "react-router-dom"
